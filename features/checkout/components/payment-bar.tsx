@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { useCart } from "@/features/cart/lib/use-cart"
 import { submitOrder } from "@/features/checkout/action/actions"
 import type { PaymentMethod } from "@/features/checkout/lib/checkout"
+import type { ReceiptView } from "@/features/receipt/action/queries"
 
 const METHODS: { value: PaymentMethod; label: string }[] = [
   { value: "CASH", label: "Tunai" },
@@ -21,7 +22,7 @@ export function PaymentBar({
 }: {
   subtotal: number
   total: number
-  onPaid: (invoiceNumber: string) => void
+  onPaid: (receipt: ReceiptView) => void
 }) {
   const cart = useCart()
   const [method, setMethod] = useState<PaymentMethod>("CASH")
@@ -44,7 +45,7 @@ export function PaymentBar({
         return
       }
       cart.clear()
-      onPaid(result.invoiceNumber)
+      onPaid(result.receipt)
     } catch {
       setError("Pembayaran gagal. Coba lagi.")
     } finally {

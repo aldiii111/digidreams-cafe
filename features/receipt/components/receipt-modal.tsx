@@ -1,6 +1,5 @@
 "use client"
 
-import { Suspense, use } from "react"
 import { CheckCircle2, Printer } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,31 +10,20 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { fetchReceipt } from "@/features/receipt/action/actions"
+import type { ReceiptView } from "@/features/receipt/action/queries"
 import { Receipt } from "./receipt-view"
 
-function ReceiptBody({ promise }: { promise: ReturnType<typeof fetchReceipt> }) {
-  const receipt = use(promise)
-
-  if (!receipt) {
-    return <p className="py-8 text-center text-sm text-muted-foreground">Struk tidak ditemukan.</p>
-  }
-  return <Receipt receipt={receipt} />
-}
-
 export function ReceiptModal({
-  invoiceNumber,
+  receipt,
   onClose,
 }: {
-  invoiceNumber: string | null
+  receipt: ReceiptView | null
   onClose: () => void
 }) {
-  const promise = invoiceNumber ? fetchReceipt(invoiceNumber) : null
-
   return (
-    <Dialog open={invoiceNumber !== null} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[90dvh] sm:max-w-sm">
-        <DialogHeader className="shrink-0">
+    <Dialog open={receipt !== null} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-h-[90dvh] sm:max-w-sm print:static print:max-h-none print:max-w-none">
+        <DialogHeader className="shrink-0 print:hidden">
           <DialogTitle className="flex items-center gap-2">
             <CheckCircle2 className="size-4 text-success" aria-hidden />
             Pembayaran berhasil
@@ -43,15 +31,9 @@ export function ReceiptModal({
           <DialogDescription>Struk siap dicetak atau diserahkan ke pelanggan.</DialogDescription>
         </DialogHeader>
 
-        <ScrollArea className="min-h-0 flex-1">
+        <ScrollArea className="min-h-0 flex-1 print:overflow-visible">
           <div className="rounded-lg border bg-background p-3 print:border-0 print:p-0">
-            {promise && (
-              <Suspense
-                fallback={<p className="py-8 text-center text-sm text-muted-foreground">Memuat struk…</p>}
-              >
-                <ReceiptBody promise={promise} />
-              </Suspense>
-            )}
+            {receipt && <Receipt receipt={receipt} />}
           </div>
         </ScrollArea>
 

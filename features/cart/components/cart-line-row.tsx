@@ -33,19 +33,19 @@ export function CartLineRow({
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-[13px] font-medium leading-tight">{product.name}</p>
+        <p className="line-clamp-2 text-[13px] font-medium leading-tight">{product.name}</p>
         <p className="text-xs text-muted-foreground tabular-nums">{formatRupiah(product.price)}</p>
         {atMax && <p className="text-[11px] text-warning">Stok maksimal</p>}
       </div>
 
       <div className="flex items-center gap-0.5">
-        <Button variant="outline" size="icon-xs" onClick={onDecrement} aria-label={`Kurangi ${product.name}`}>
+        <Button variant="outline" size="icon-sm" onClick={onDecrement} aria-label={`Kurangi ${product.name}`}>
           <Minus />
         </Button>
         <span className="w-5 text-center text-xs tabular-nums">{quantity}</span>
         <Button
           variant="outline"
-          size="icon-xs"
+          size="icon-sm"
           onClick={onIncrement}
           disabled={atMax}
           aria-label={`Tambah ${product.name}`}
@@ -54,8 +54,8 @@ export function CartLineRow({
         </Button>
       </div>
 
-      <div className="flex w-14 shrink-0 flex-col items-end gap-0.5">
-        <span className="text-[13px] font-semibold tabular-nums">
+      <div className="flex shrink-0 min-w-[5rem] flex-col items-end gap-0.5">
+        <span className="text-[13px] font-semibold tabular-nums text-right">
           {formatRupiah(product.price * quantity)}
         </span>
         <Button
@@ -63,7 +63,7 @@ export function CartLineRow({
           size="icon-xs"
           onClick={onRemove}
           aria-label={`Hapus ${product.name}`}
-          className="size-5 text-muted-foreground hover:text-destructive"
+          className="size-6 text-muted-foreground hover:text-destructive"
         >
           <Trash2 />
         </Button>

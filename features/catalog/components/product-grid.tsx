@@ -18,7 +18,7 @@ export function ProductGrid({ products }: { products: ProductView[] }) {
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
       {products.map((product, i) => (
-        <li key={product.id}>
+        <li key={product.id} className="h-full">
           <ProductCard
             product={product}
             inCart={cart.quantityOf(product.id)}

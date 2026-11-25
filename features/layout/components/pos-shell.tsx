@@ -5,6 +5,7 @@ import { computeTotals } from "@/lib/money"
 import { revalidatePromo } from "@/lib/promo-revalidate"
 import { PaymentBar } from "@/features/checkout/components/payment-bar"
 import { ReceiptModal } from "@/features/receipt/components/receipt-modal"
+import type { ReceiptView } from "@/features/receipt/action/queries"
 import { CartContext, useCartState } from "@/features/cart/lib/use-cart"
 import { CartBody, CartMobileBar } from "@/features/cart/components/cart-panel"
 import { CartSummary } from "@/features/cart/components/cart-summary"
@@ -12,7 +13,7 @@ import { PromoForm } from "@/features/cart/components/promo-form"
 
 export function PosShell({ children }: { children: React.ReactNode }) {
   const cart = useCartState()
-  const [paidInvoice, setPaidInvoice] = useState<string | null>(null)
+  const [paidReceipt, setPaidReceipt] = useState<ReceiptView | null>(null)
 
   const subtotal = useMemo(
     () => cart.lines.reduce((sum, l) => sum + l.product.price * l.quantity, 0),
@@ -36,7 +37,7 @@ export function PosShell({ children }: { children: React.ReactNode }) {
     ) : null
 
   const paymentBar = (
-    <PaymentBar subtotal={subtotal} total={totals.total} onPaid={setPaidInvoice} />
+    <PaymentBar subtotal={subtotal} total={totals.total} onPaid={setPaidReceipt} />
   )
 
   return (
@@ -80,10 +81,7 @@ export function PosShell({ children }: { children: React.ReactNode }) {
           }
         />
 
-        <ReceiptModal
-          invoiceNumber={paidInvoice}
-          onClose={() => setPaidInvoice(null)}
-        />
+        <ReceiptModal receipt={paidReceipt} onClose={() => setPaidReceipt(null)} />
       </div>
     </CartContext.Provider>
   )

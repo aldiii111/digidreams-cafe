@@ -68,10 +68,10 @@ export function CartMobileBar({
   if (count === 0) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background p-3 lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden">
       <Dialog>
         <DialogTrigger
-          render={<button className="flex w-full items-center justify-between rounded-lg bg-primary px-4 py-2.5 text-primary-foreground" />}
+          render={<button className="flex min-h-11 w-full items-center justify-between rounded-lg bg-primary px-4 py-2.5 text-primary-foreground" />}
         >
           <span className="flex items-center gap-2 text-sm font-medium">
             <ShoppingCart className="size-4" aria-hidden />

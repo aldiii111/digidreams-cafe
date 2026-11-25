@@ -22,8 +22,8 @@ export function ProductCard({
   const soldOut = available <= 0
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border bg-card text-card-foreground">
-      <div className="relative aspect-[4/3] bg-muted">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border bg-card text-card-foreground">
+      <div className="relative aspect-[4/3] w-full shrink-0 bg-muted">
         {product.imageUrl ? (
           <Image
             src={product.imageUrl}
@@ -45,15 +45,19 @@ export function ProductCard({
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-1 p-3">
-        <p className="text-xs text-muted-foreground">{product.categoryName}</p>
-        <h3 className="line-clamp-2 text-sm font-semibold leading-snug">{product.name}</h3>
-        <div className="mt-auto flex items-center justify-between gap-2 pt-2">
+      <div className="flex flex-1 flex-col justify-between p-3">
+        <div className="flex flex-col gap-1">
+          <p className="text-xs text-muted-foreground truncate">{product.categoryName}</p>
+          <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-snug">
+            {product.name}
+          </h3>
+        </div>
+        <div className="mt-3 flex items-center justify-between gap-2 pt-2 border-t border-border/40">
           <span className="text-sm font-semibold tabular-nums">
             {formatRupiah(product.price)}
           </span>
           <Button
-            size="icon-sm"
+            size="icon-sm" className="size-10"
             variant={soldOut ? "outline" : "default"}
             onClick={onAdd}
             disabled={soldOut}

@@ -39,7 +39,7 @@ export function CatalogBrowser({ catalog }: { catalog: Catalog }) {
               role="tab"
               aria-selected={active}
               onClick={() => setCategory(tab.slug)}
-              className={`h-8 rounded-lg px-3 text-sm font-medium transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none ${
+              className={`h-10 rounded-lg px-3 text-sm font-medium transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none ${
                 active
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted text-muted-foreground hover:text-foreground"
