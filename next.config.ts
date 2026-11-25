@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    remotePatterns: [new URL("https://yynwzhiazwhtnrdbobyd.supabase.co/storage/v1/object/public/product-images/**")],
+  },
   turbopack: {
     rules: {
       "*.css": {
