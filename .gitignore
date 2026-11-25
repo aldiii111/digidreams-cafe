@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local issue tracker (specs + tickets)
+/.scratch/
+# env: ignore all except the required example
+!.env.example
+
+/lib/generated/prisma
+
+# sqlite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
