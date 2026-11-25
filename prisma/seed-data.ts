@@ -33,7 +33,7 @@ export const PRODUCTS: SeedProduct[] = [
     price: 15000,
     stock: 120,
     description: "Double shot espresso blend Arabika & Robusta dengan rasa tebal seimbang, segar tanpa gula bikin melek seketika saat nugas di Sukoharjo & Solo.",
-    imageUrl: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1485808191679-5f86510681a2",
   },
   {
     slug: "cappucino-creamy",
@@ -60,7 +60,7 @@ export const PRODUCTS: SeedProduct[] = [
     price: 20000,
     stock: 120,
     description: "Matcha Uji murni impor Jepang berpadu dengan susu segar pilihan, rasa gurih legit seimbang tanpa pahit berlebih di Digidreams.",
-    imageUrl: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a",
   },
   {
     slug: "red-velvet",
@@ -105,7 +105,7 @@ export const PRODUCTS: SeedProduct[] = [
     price: 22000,
     stock: 60,
     description: "Nasi goreng bumbu rempah dapur spesial dengan suwiran ayam gurih dan aroma smoky wajan panas.",
-    imageUrl: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1541167760496-1628856ab772",
   },
   {
     slug: "paket-coworking-pelajar",
@@ -114,7 +114,7 @@ export const PRODUCTS: SeedProduct[] = [
     price: 8000,
     stock: 999,
     description: "Akses 8 jam khusus pelajar & mahasiswa aktif di Digidreams Sukoharjo. WiFi 100 Mbps, stopkontak mandiri di setiap meja, dan free refill air mineral.",
-    imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
   },
   {
     slug: "paket-coworking-fullday",
@@ -123,6 +123,6 @@ export const PRODUCTS: SeedProduct[] = [
     price: 45000,
     stock: 999,
     description: "Akses seharian penuh s/d 02.00 subuh di Digidreams Sukoharjo. Keluar-masuk bebas, free refill air mineral, WiFi 100 Mbps, dan diskon menu 10%.",
-    imageUrl: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1497215728101-856f4ea42174",
   },
 ]
