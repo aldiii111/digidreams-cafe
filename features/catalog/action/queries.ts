@@ -7,6 +7,7 @@ export type ProductView = {
   slug: string
   price: number
   stock: number
+  description?: string | null
   imageUrl: string | null
   categorySlug: string
   categoryName: string
@@ -30,6 +31,7 @@ export async function getCatalog(): Promise<Catalog> {
         slug: true,
         price: true,
         stock: true,
+        description: true,
         imageUrl: true,
         category: { select: { slug: true, name: true } },
       },

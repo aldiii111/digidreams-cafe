@@ -9,6 +9,7 @@ const product = (id: number, stock: number): ProductView => ({
   slug: `p-${id}`,
   price: 10_000,
   stock,
+  description: null,
   imageUrl: null,
   categorySlug: "coffee",
   categoryName: "Coffee",

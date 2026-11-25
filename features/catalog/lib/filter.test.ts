@@ -9,6 +9,7 @@ const p = (name: string, categorySlug: string): ProductView => ({
   slug: name.toLowerCase().replaceAll(" ", "-"),
   price: 1000,
   stock: 1,
+  description: null,
   imageUrl: null,
   categorySlug,
   categoryName: categorySlug,

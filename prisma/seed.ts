@@ -25,6 +25,7 @@ async function main() {
         name: p.name,
         categoryId,
         price: p.price,
+        description: p.description,
         imageUrl: p.imageUrl,
       },
       create: {
@@ -33,6 +34,7 @@ async function main() {
         categoryId,
         price: p.price,
         stock: p.stock,
+        description: p.description,
         imageUrl: p.imageUrl,
       },
     })

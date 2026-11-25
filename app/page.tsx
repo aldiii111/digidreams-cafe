@@ -19,6 +19,7 @@ export default function PosPage() {
               src="/logo-digidreams.png"
               alt="DigiDreams"
               fill
+              sizes="112px"
               className="object-contain object-left"
               priority
             />

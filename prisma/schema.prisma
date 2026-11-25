@@ -17,15 +17,16 @@ model Category {
 }
 
 model Product {
-  id         Int        @id @default(autoincrement())
-  name       String
-  slug       String     @unique
-  categoryId Int
-  category   Category   @relation(fields: [categoryId], references: [id])
-  price      Int
-  stock      Int        @default(0)
-  imageUrl   String?
-  orderItems OrderItem[]
+  id          Int        @id @default(autoincrement())
+  name        String
+  slug        String     @unique
+  categoryId  Int
+  category    Category   @relation(fields: [categoryId], references: [id])
+  price       Int
+  stock       Int        @default(0)
+  description String?
+  imageUrl    String?
+  orderItems  OrderItem[]
 
   @@index([categoryId])
   @@map("products")
