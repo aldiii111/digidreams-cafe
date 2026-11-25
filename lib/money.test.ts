@@ -80,12 +80,19 @@ test("promo is ignored outside its date window", () => {
 
 test("promo inside its date window applies", () => {
   const lines: CartLine[] = [{ price: 60_000, quantity: 1 }]
-  const t = computeTotals(lines, {
-    ...perc(10),
-    startsAt: new Date("2000-01-01"),
-    endsAt: new Date("2999-01-01"),
-  })
+  const now = new Date("2026-06-01")
+  const t = computeTotals(
+    lines,
+    { ...perc(10), startsAt: new Date("2000-01-01"), endsAt: new Date("2999-01-01") },
+    now,
+  )
   assert.equal(t.discount, 6_000)
+})
+
+test("a time-limited promo is ignored when no clock is supplied", () => {
+  const lines: CartLine[] = [{ price: 60_000, quantity: 1 }]
+  const t = computeTotals(lines, { ...perc(10), startsAt: new Date("2000-01-01") })
+  assert.equal(t.discount, 0)
 })
 
 test("tax rounds half up on the discounted amount", () => {

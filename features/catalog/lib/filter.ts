@@ -1,4 +1,4 @@
-import type { ProductView } from "./queries"
+import type { ProductView } from "@/features/catalog/action/queries"
 
 export const ALL = "all"
 

@@ -1,7 +1,7 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
 import { filterProducts, ALL } from "./filter.ts"
-import type { ProductView } from "./queries.ts"
+import type { ProductView } from "@/features/catalog/action/queries.ts"
 
 const p = (name: string, categorySlug: string): ProductView => ({
   id: 0,

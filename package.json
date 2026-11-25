@@ -10,7 +10,7 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:reset": "prisma migrate reset --force",
-    "test": "node --test --experimental-strip-types \"lib/**/*.test.ts\" \"features/**/*.test.ts\""
+    "test": "tsx --test \"lib/**/*.test.ts\" \"features/**/*.test.ts\""
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

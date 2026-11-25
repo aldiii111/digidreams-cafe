@@ -13,16 +13,16 @@ export type Totals = { subtotal: number; discount: number; tax: number; total: n
 
 const TAX_RATE = 0.1
 
-function isPromoEligible(promo: PromoLike, subtotal: number, now: Date): boolean {
+function isPromoEligible(promo: PromoLike, subtotal: number, now: Date | undefined): boolean {
   if (!promo.isActive) return false
   if (subtotal < promo.minOrder) return false
-  if (promo.startsAt && now < promo.startsAt) return false
-  if (promo.endsAt && now > promo.endsAt) return false
+  if (promo.startsAt && (!now || now < promo.startsAt)) return false
+  if (promo.endsAt && (!now || now > promo.endsAt)) return false
   return true
 }
 
 /** Pure money computation: Subtotal → Discount (clamped) → PPN 10% → Total. All amounts are whole rupiah. */
-export function computeTotals(lines: CartLine[], promo: PromoLike | null, now = new Date()): Totals {
+export function computeTotals(lines: CartLine[], promo: PromoLike | null, now?: Date): Totals {
   const subtotal = lines.reduce((sum, l) => sum + l.price * l.quantity, 0)
 
   let discount = 0
