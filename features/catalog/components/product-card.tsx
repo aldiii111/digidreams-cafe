@@ -49,7 +49,7 @@ export function ProductCard({
         <p className="text-xs text-muted-foreground">{product.categoryName}</p>
         <h3 className="line-clamp-2 text-sm font-semibold leading-snug">{product.name}</h3>
         <div className="mt-auto flex items-center justify-between gap-2 pt-2">
-          <span className="font-mono text-sm font-semibold tabular-nums">
+          <span className="text-sm font-semibold tabular-nums">
             {formatRupiah(product.price)}
           </span>
           <Button
@@ -62,9 +62,6 @@ export function ProductCard({
             <Plus />
           </Button>
         </div>
-        {inCart > 0 && (
-          <p className="text-xs text-muted-foreground tabular-nums">Di keranjang: {inCart}</p>
-        )}
       </div>
     </article>
   )

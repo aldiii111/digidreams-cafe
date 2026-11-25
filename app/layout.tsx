@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="id"
-      className={cn("h-full", "antialiased", "dark", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", "", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="flex h-dvh flex-col overflow-hidden">
         <header className="shrink-0 border-b px-4 py-3">

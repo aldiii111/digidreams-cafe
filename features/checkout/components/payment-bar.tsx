@@ -81,7 +81,7 @@ export function PaymentBar({
           {pending && <Loader2 className="size-4 animate-spin" aria-hidden />}
           {pending ? "Memproses…" : "Bayar Sekarang"}
         </span>
-        <span className="font-mono tabular-nums">{formatRupiah(total)}</span>
+        <span className="text-sm font-semibold tabular-nums">{formatRupiah(total)}</span>
       </Button>
 
       {error && (

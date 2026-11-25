@@ -10,7 +10,7 @@ export function CartSummary({ totals }: { totals: Totals }) {
       </div>
       <div className="flex justify-between">
         <dt className="text-muted-foreground">Diskon</dt>
-        <dd className={totals.discount > 0 ? "tabular-nums text-emerald-600" : "tabular-nums"}>
+        <dd className={totals.discount > 0 ? "tabular-nums text-success" : "tabular-nums"}>
           {totals.discount > 0 ? `−${formatRupiah(totals.discount)}` : formatRupiah(0)}
         </dd>
       </div>

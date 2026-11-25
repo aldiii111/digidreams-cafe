@@ -35,7 +35,7 @@ export function CartLineRow({
       <div className="min-w-0 flex-1">
         <p className="truncate text-[13px] font-medium leading-tight">{product.name}</p>
         <p className="text-xs text-muted-foreground tabular-nums">{formatRupiah(product.price)}</p>
-        {atMax && <p className="text-[11px] text-amber-600">Stok maksimal</p>}
+        {atMax && <p className="text-[11px] text-warning">Stok maksimal</p>}
       </div>
 
       <div className="flex items-center gap-0.5">

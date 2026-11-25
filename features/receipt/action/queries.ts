@@ -1,3 +1,4 @@
+import { connection } from "next/server"
 import { prisma } from "@/lib/db"
 
 export type ReceiptView = {
@@ -12,6 +13,9 @@ export type ReceiptView = {
 }
 
 export async function getReceipt(invoiceNumber: string): Promise<ReceiptView | null> {
+  // better-sqlite3 is synchronous, so queries would run during prerendering
+  // unless we stop prerendering here. Receipts are per-sale data.
+  await connection()
   const order = await prisma.order.findUnique({
     where: { invoiceNumber },
     select: {

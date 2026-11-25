@@ -1,3 +1,4 @@
+import { connection } from "next/server"
 import { prisma } from "@/lib/db"
 
 export type ProductView = {
@@ -17,6 +18,8 @@ export type Catalog = {
 }
 
 export async function getCatalog(): Promise<Catalog> {
+  // Stock changes with every sale, so the catalog is request-time data.
+  await connection()
   const [categories, products] = await Promise.all([
     prisma.category.findMany({ orderBy: { id: "asc" }, select: { slug: true, name: true } }),
     prisma.product.findMany({

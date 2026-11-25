@@ -1,4 +1,4 @@
-import type { ProductView } from "@/features/catalog/queries"
+import type { ProductView } from "@/features/catalog/action/queries"
 
 export type CartLineState = { product: ProductView; quantity: number }
 

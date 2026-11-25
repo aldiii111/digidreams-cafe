@@ -77,7 +77,7 @@ export function CartMobileBar({
             <ShoppingCart className="size-4" aria-hidden />
             {count} item
           </span>
-          <span className="font-mono text-sm font-semibold tabular-nums">{formatRupiah(totals)}</span>
+          <span className="text-sm font-semibold tabular-nums">{formatRupiah(totals)}</span>
         </DialogTrigger>
         <DialogContent className="flex h-[85dvh] max-h-[85dvh] flex-col">
           <DialogHeader className="shrink-0">

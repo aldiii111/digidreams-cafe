@@ -37,7 +37,7 @@ export function ReceiptModal({
       <DialogContent className="max-h-[90dvh] sm:max-w-sm">
         <DialogHeader className="shrink-0">
           <DialogTitle className="flex items-center gap-2">
-            <CheckCircle2 className="size-4 text-emerald-600" aria-hidden />
+            <CheckCircle2 className="size-4 text-success" aria-hidden />
             Pembayaran berhasil
           </DialogTitle>
           <DialogDescription>Struk siap dicetak atau diserahkan ke pelanggan.</DialogDescription>
