@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { formatRupiah } from "@/lib/format"
-import type { Cart } from "@/features/cart/lib/use-cart"
+import type { Cart } from "@/features/cart/lib/use-cart-state"
 import { CartLineRow } from "./cart-line-row"
 
 /**

@@ -2,7 +2,7 @@
 
 import type { ProductView } from "@/features/catalog/action/queries"
 import { ProductCard } from "./product-card"
-import { useCart } from "@/features/cart/lib/use-cart"
+import { useCart } from "@/features/cart/context/cart-context"
 
 export function ProductGrid({ products }: { products: ProductView[] }) {
   const cart = useCart()

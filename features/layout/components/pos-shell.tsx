@@ -6,7 +6,8 @@ import { revalidatePromo } from "@/lib/promo-revalidate"
 import { PaymentBar } from "@/features/checkout/components/payment-bar"
 import { ReceiptModal } from "@/features/receipt/components/receipt-modal"
 import type { ReceiptView } from "@/features/receipt/action/queries"
-import { CartContext, useCartState } from "@/features/cart/lib/use-cart"
+import { useCartState } from "@/features/cart/lib/use-cart-state"
+import { CartProvider } from "@/features/cart/context/cart-context"
 import { CartBody, CartMobileBar } from "@/features/cart/components/cart-panel"
 import { CartSummary } from "@/features/cart/components/cart-summary"
 import { PromoForm } from "@/features/cart/components/promo-form"
@@ -41,7 +42,7 @@ export function PosShell({ children }: { children: React.ReactNode }) {
   )
 
   return (
-    <CartContext.Provider value={cart}>
+    <CartProvider>
       <div className="grid min-h-0 flex-1 gap-5 pb-[76px] lg:grid-cols-[1fr_360px] lg:pb-0">
         <section aria-label="Katalog menu" className="flex min-h-0 min-w-0 flex-col">
           {children}
@@ -83,6 +84,6 @@ export function PosShell({ children }: { children: React.ReactNode }) {
 
         <ReceiptModal receipt={paidReceipt} onClose={() => setPaidReceipt(null)} />
       </div>
-    </CartContext.Provider>
+    </CartProvider>
   )
 }
