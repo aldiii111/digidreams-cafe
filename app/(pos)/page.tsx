@@ -1,10 +1,10 @@
 import { Suspense } from "react"
 import { getCatalog } from "@/features/catalog/action/queries"
-import { CatalogBrowser } from "@/features/catalog/components/catalog-browser"
+import { CatalogScreen } from "@/features/catalog/components/catalog-screen"
 
 async function Catalog() {
   const catalog = await getCatalog()
-  return <CatalogBrowser catalog={catalog} />
+  return <CatalogScreen catalog={catalog} />
 }
 
 export default function PosPage() {
