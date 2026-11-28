@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Minus, Plus, Trash2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { formatRupiah } from "@/lib/format"
-import type { CartLineState } from "@/lib/cart"
+import Image from "next/image";
+import { Minus, Plus, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { formatRupiah } from "@/lib/format";
+import type { CartLineState } from "@/features/cart/types";
 
 export function CartLineRow({
   line,
@@ -12,19 +12,25 @@ export function CartLineRow({
   onDecrement,
   onRemove,
 }: {
-  line: CartLineState
-  onIncrement: () => void
-  onDecrement: () => void
-  onRemove: () => void
+  line: CartLineState;
+  onIncrement: () => void;
+  onDecrement: () => void;
+  onRemove: () => void;
 }) {
-  const { product, quantity } = line
-  const atMax = quantity >= product.stock
+  const { product, quantity } = line;
+  const atMax = quantity >= product.stock;
 
   return (
     <li className="flex items-center gap-2.5 py-2.5">
       <div className="relative size-11 shrink-0 overflow-hidden rounded-md bg-muted">
         {product.imageUrl ? (
-          <Image src={product.imageUrl} alt="" fill sizes="44px" className="object-cover" />
+          <Image
+            src={product.imageUrl}
+            alt=""
+            fill
+            sizes="44px"
+            className="object-cover"
+          />
         ) : (
           <span className="flex h-full items-center justify-center text-xs text-muted-foreground">
             {product.name.slice(0, 1)}
@@ -33,13 +39,22 @@ export function CartLineRow({
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="line-clamp-2 text-[13px] font-medium leading-tight">{product.name}</p>
-        <p className="text-xs text-muted-foreground tabular-nums">{formatRupiah(product.price)}</p>
+        <p className="line-clamp-2 text-[13px] font-medium leading-tight">
+          {product.name}
+        </p>
+        <p className="text-xs text-muted-foreground tabular-nums">
+          {formatRupiah(product.price)}
+        </p>
         {atMax && <p className="text-[11px] text-warning">Stok maksimal</p>}
       </div>
 
       <div className="flex items-center gap-0.5">
-        <Button variant="outline" size="icon-sm" onClick={onDecrement} aria-label={`Kurangi ${product.name}`}>
+        <Button
+          variant="outline"
+          size="icon-sm"
+          onClick={onDecrement}
+          aria-label={`Kurangi ${product.name}`}
+        >
           <Minus />
         </Button>
         <span className="w-5 text-center text-xs tabular-nums">{quantity}</span>
@@ -69,5 +84,5 @@ export function CartLineRow({
         </Button>
       </div>
     </li>
-  )
+  );
 }
